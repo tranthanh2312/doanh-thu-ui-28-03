@@ -5,23 +5,27 @@ import { Pagination, Table } from "@mantine/core";
 const elements = [
   {
     name: "Toán",
-    symbol: "C",
-    atomicMass: 12.011,
+    Date: "31/4-31/5",
+    symbol: "100.000.000",
+    atomicMass: 100,
   },
   {
     name: "Lý",
-    symbol: "N",
-    atomicMass: 14.007,
+    Date: "31/4-31/5",
+    symbol: "100.000.000",
+    atomicMass: 100,
   },
   {
     name: "Hóa",
-    symbol: "Y",
-    atomicMass: 88.906,
+    Date: "31/4-31/5",
+    symbol: "100.000.000",
+    atomicMass: 100,
   },
   {
     name: "Tiếng Anh",
-    symbol: "Ba",
-    atomicMass: 137.33,
+    Date: "31/4-31/5",
+    symbol: "100.000.000",
+    atomicMass: 100,
   },
   
 ];
@@ -57,8 +61,9 @@ const SegmentedControl = () => {
     <tr key={element.name}>
       {/* <td>{element.position}</td> */}
       <td>{element.name}</td>
+      <td>{element.Date}</td>
       <td>{element.symbol}</td>
-      <td>{element.mass}</td>
+      <td>{element.atomicMass}</td>
     </tr>
   ));
   const row = element.map((element) => (
@@ -84,12 +89,14 @@ const SegmentedControl = () => {
           <Tabs.Panel value="chat" pb="xs">
             <Table>
               <div className=" w-80 h-96">
-                <div className="flex pt-6 font-serif　text-gray-300 fo text-2xl items-center justify-center">
-                  subtotal
+                <div className="flex pt-10  font-mono　text-gray-300 fo text-3xl items-center justify-center">
+                  Sumtotal Revenue
                 </div>
-                <div className="flex justify-center text-4xl text-lime-500 pt-3 border-lime-200 ">
+                
+                <div className="flex justify-center items-center italic text-4xl text-violet-900 pt-24 mb-12 font-semibold">
                   600.000.000
                 </div>
+                <div className="bg-green-400 text-xl flex justify-end ml-32 mt-16 w-16"> <i trending-up="circle">+3.2%</i></div>
               </div>
             </Table>
           </Tabs.Panel>
@@ -101,10 +108,10 @@ const SegmentedControl = () => {
             <Table>
               <thead>
                 <tr>
-                  <th>Element position</th>
-                  <th>Element name</th>
-                  <th>Symbol</th>
-                  <th>Atomic mass</th>
+                  <th>Class</th>
+                  <th>Date(from-to)</th>
+                  <th>Total</th>
+                  <th>quantify student</th>
                 </tr>
               </thead>
               <tbody>{rows}</tbody>

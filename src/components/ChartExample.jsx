@@ -85,11 +85,11 @@ const ChartExample = () => {
           <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
-      <div className=" flex items-center justify-center gap-10 pt-64">
+      <div className=" flex items-center justify-center gap-10 pt-64 lg:pl-40 ">
         <div className="bg-indigo-400 w-96 h-1"></div>
         <div>Doanh thu ước tính</div>
       </div>
-      <div className=" flex items-center sm:pb-16 justify-center gap-10">
+      <div className=" flex items-center sm:pb-16 justify-center gap-10 lg:pl-40">
         <div className="bg-green-500 w-96 h-1"></div>
         <div>Doanh thu hiện tại</div>
       </div>

@@ -9,14 +9,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mantine/core": "^6.0.2",
+    "@coreui/react": "^4.7.0",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mantine/core": "^6.0.5",
+    "@mantine/hooks": "^6.0.5",
+    "@mui/material": "^5.11.14",
+    "@react-native-segmented-control/segmented-control": "^2.4.1",
     "@tabler/icons-react": "^2.11.0",
+    "category": "^0.1.2",
     "chart.js": "^4.2.1",
+    "data": "^0.6.1",
+    "doughnut": "^0.0.3",
+    "mantine-react-table": "^0.9.5",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-google-charts": "^4.0.0",
     "recharts": "^2.5.0",
+    "table": "^6.8.1",
+    "tabler-icons-react": "^1.56.0",
+    "util": "^0.12.5",
     "victory-pie": "^36.6.8"
   },
   "devDependencies": {

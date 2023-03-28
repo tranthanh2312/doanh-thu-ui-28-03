@@ -11,6 +11,7 @@ import {
   Legend,
 } from "recharts";
 import useScreenSize from "../hooks/useScreenSize";
+import "./segment.css";
 
 const data = [
   { name: "tháng 1", uv: 4000, pv: 2400, amt: 2400 },
@@ -44,22 +45,26 @@ const ChartExample = () => {
       //   overflowX: screenSize.width < 992 ? "auto" : "unset",
 
       // }}
-    style ={{
-      height: "100%",
-      width: "100%",
-      backgroundColor : "white",
-      paddingTop: "white",
-      paddingRight: "2vw",
-      paddingLeft: "2vw",
-      border: "1px solid #fff",
-      borderRadius: "15px",
-      overflowX: screenSize.width < 992 ? "auto" : "unset",
-    }}
-      
+      style={{
+        display:"grid",
+        alignItems: "center",
+        justifyContent: "center",
+        alignContent: "center",
+        height: "100%",
+        width: "100%",
+        backgroundColor: "white",
+        paddingTop: "white",
+        paddingRight: "2vw",
+        paddingLeft: "2vw",
+        border: "1px solid #fff",
+        borderRadius: "15px",
+        overflowX: screenSize.width < 992 ? "auto" : "unset",
+        // display: "flex",
+      }}
     >
       <ResponsiveContainer
-        className=" chart "
-        height={screenSize.width < 992 ? 200 : screen.height * 0.32}
+        className=" chart pt-48  sm:pl-24 sm:pb-16"
+        height={screenSize.width < 992 ? 200 : screen.height * 0.28}
         width={screenSize.width < 992 ? 500 : "100%"}
       >
         <LineChart
@@ -75,16 +80,16 @@ const ChartExample = () => {
             type="monotone"
             dataKey="pv"
             stroke="#8884d8"
-            activeDot={{ r: 8 }}
+            activeDot={{ r:8  }}
           />
           <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
-      <div className=" flex items-center justify-center gap-10">
+      <div className=" flex items-center justify-center gap-10 pt-64">
         <div className="bg-indigo-400 w-96 h-1"></div>
         <div>Doanh thu ước tính</div>
       </div>
-      <div className=" flex items-center justify-center gap-10">
+      <div className=" flex items-center sm:pb-16 justify-center gap-10">
         <div className="bg-green-500 w-96 h-1"></div>
         <div>Doanh thu hiện tại</div>
       </div>

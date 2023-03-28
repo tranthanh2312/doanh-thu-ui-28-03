@@ -54,7 +54,7 @@ const ChartExample = () => {
         width: "100%",
         backgroundColor: "white",
         paddingTop: "white",
-        paddingRight: "2vw",
+        paddingRight: "8vw",
         paddingLeft: "2vw",
         border: "1px solid #fff",
         borderRadius: "15px",
@@ -94,6 +94,7 @@ const ChartExample = () => {
         <div>Doanh thu hiện tại</div>
       </div>
     </div>
+    
   );
 };
 

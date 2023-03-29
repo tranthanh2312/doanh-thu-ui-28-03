@@ -5,7 +5,7 @@ import { TableDemo } from "../components/table";
 import ChartExample from "../components/ChartExample";
 import useScreenSize from "../hooks/useScreenSize";
 import Tax from "../components/Tax";
-import SegmentedControl from "../components/SegmentedControl";
+import RevenueTable from "../components/SegmentedControl";
 
 const Dashboard = () => {
   const screenSize = useScreenSize();
@@ -49,7 +49,7 @@ const Dashboard = () => {
           }}
         >
           <Pie />
-          <SegmentedControl />
+          {/* <ChartExample /> */}
         </div>
 
         <div
@@ -61,10 +61,12 @@ const Dashboard = () => {
             gap: "2vh",
             height: "100%",
             width: "100%",
-            textAlign: "center",
+            // textAlign: "center",
           }}
         >
-          <ChartExample />
+          <RevenueTable />
+          {/* <RevenueTable /> */}
+
           {/* {JSON.stringify(screenSize)} */}
         </div>
       </div>

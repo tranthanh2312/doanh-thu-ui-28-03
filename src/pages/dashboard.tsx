@@ -4,11 +4,30 @@ import Pie from "../components/Pie";
 import { TableDemo } from "../components/table";
 import ChartExample from "../components/ChartExample";
 import useScreenSize from "../hooks/useScreenSize";
-import Tax from "../components/Tax";
+
 import RevenueTable from "../components/SegmentedControl";
+import { itemApi } from "../api/api";
+import {Sumtable} from "../components/Sumtable";
+import Filter from "../components/Filter";
 
 const Dashboard = () => {
   const screenSize = useScreenSize();
+
+  const setCookie = () => {
+    const name = "gledu";
+    const value =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MiwiRW50aXR5Q29kZSI6MSwiZXhwIjoxNjgwNjcwNjQ3fQ.YYJytBwhoYw8pPcAR2qLH-RCNgYgjBbFywhx5F-0J94";
+    const days = 10;
+    const date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  };
+
+  React.useEffect(() => {
+    setCookie();
+    // itemApi.login();
+  }, []);
 
   return (
     <div
@@ -48,7 +67,7 @@ const Dashboard = () => {
             // height: "80vh",
           }}
         >
-          <Pie />
+          
           {/* <ChartExample /> */}
         </div>
 
@@ -64,8 +83,23 @@ const Dashboard = () => {
             // textAlign: "center",
           }}
         >
+          <Filter/>
           <RevenueTable />
           {/* <RevenueTable /> */}
+          <TableDemo/>
+          <div style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "2vh", 
+            height: "100%",
+            width: "100%",
+          }}>
+          <Pie />
+          <Sumtable/>
+          </div>
+          
 
           {/* {JSON.stringify(screenSize)} */}
         </div>

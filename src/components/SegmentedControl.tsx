@@ -1,52 +1,19 @@
-import React from 'react'
+import React from "react";
 import { Tabs } from "@mantine/core";
 import { Pagination, Table } from "@mantine/core";
 import { itemApi } from "../api/api";
 import { Class, Item } from "../model/model";
-import { useGetItem } from '../api/useApi';
+import { useGetItem } from "../api/useApi";
 
-const elements = [
-  {
-    name: "Toán",
-    Date: "31/4-31/5",
-    symbol: "100.000.000",
-    atomicMass: 100,
-  },
-  {
-    name: "Lý",
-    Date: "31/4-31/5",
-    symbol: "100.000.000",
-    atomicMass: 100,
-  },
-  {
-    name: "Hóa",
-    Date: "31/4-31/5",
-    symbol: "100.000.000",
-    atomicMass: 100,
-  },
-  {
-    name: "Tiếng Anh",
-    Date: "31/4-31/5",
-    symbol: "100.000.000",
-    atomicMass: 100,
-  },
-];
 
-const rows = elements.map((element) => (
-  <tr key={element.name}>
-    {/* <td>{element.position}</td> */}
-    <td>{element.name}</td>
-    <td>{element.Date}</td>
-    <td>{element.symbol}</td>
-    <td>{element.atomicMass}</td>
-  </tr>
-));
+
 
 const RevenueTable = () => {
   // const [_class, _setClass] = React.useState([] as Item[]);
 
   // 4. Import UseQuery để lưu vào 1 biến data (_item)
-  const {data: _item} = useGetItem();
+  const { data: _item } = useGetItem();
+  const [currentPage, setCurrentPage] = React.useState(1);
 
   return (
     <div
@@ -79,11 +46,11 @@ const RevenueTable = () => {
             </tr>
           </thead>
           <tbody>
-          {/* 
+            {/* 
             5. Funtion map để lặp qua từng phần tử trong mảng _item
             6. Sử dụng sort để sắp xếp theo tên
           */}
-            {_item?.sort((a, b) => a.itemType.itemTypeName.localeCompare(b.itemType.itemTypeName)).map((x, index) => {
+            {/* {_item?.sort((a, b) => a.itemType.itemTypeName.localeCompare(b.itemType.itemTypeName)).map((x, index) => {
                return (
                 <tr key={index}>
                   <td>{x.itemName}</td>
@@ -95,8 +62,40 @@ const RevenueTable = () => {
                   <td>20</td>
                 </tr>
               );
-            })}
+            })} */}
+            {_item
+              ?.sort((a, b) =>
+                a.itemType.itemTypeName.localeCompare(b.itemType.itemTypeName)
+              )
+              .map((x, index) => {
+                return (
+                  index >= (currentPage - 1) * 50 &&
+                  index < currentPage * 50 && (
+                    <tr key={index}>
+                      <td>
+                        {index + 1}. {x.itemName}
+                      </td>
+                      <td>{x.itemType.itemTypeName}</td>
+                      <td>
+                        {(x.basePrice * -1).toLocaleString("vi-VN", {
+                          style: "currency",
+                          currency: "VND",
+                        })}
+                      </td>
+                      <td>20</td>
+                    </tr>
+                  )
+                );
+              })}
           </tbody>
+          <Pagination
+            size="sm"
+            total={Math.round((_item?.length ?? 0) / 50)}
+            value={currentPage}
+            onChange={(e) => {
+              setCurrentPage(e);
+            }}
+          />
         </Table>
       </div>
     </div>

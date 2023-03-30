@@ -2,28 +2,25 @@ import { Pagination, Table } from "@mantine/core";
 
 const elements = [
   {
-    position: 1,
-    name: "Toán",
-    symbol: "4",
-    mass: 1.0079,
+    year: "1/5",
+    Date: 1,
+    revene: "100.000.000",
+    
   },
   {
-    position: 2,
-    name: "Lý",
-    symbol: "4",
-    mass: 4.0026,
+    year: "2/5",
+    Date: 2,
+    revene: "100.000.000",
   },
   {
-    position: 3,
-    name: "Hóa",
-    symbol: "4",
-    mass: 6.941,
+    year: "3/5",
+    Date: 3,
+    revene: "100.000.000",
   },
   {
-    position: 4,
-    name: "Tiếng Anh",
-    symbol: "4",
-    mass: 9.0122,
+    year: "4/5",
+    Date: 4,
+    revene: "100.000.000",
   },
   
 ];
@@ -31,10 +28,10 @@ const elements = [
 export const TableDemo = () => {
   const rows = elements.map((element) => (
     <tr key={element.name}>
-      <td>{element.position}</td>
-      <td>{element.name}</td>
-      <td>{element.symbol}</td>
-      <td>{element.mass}</td>
+      <td>{element.year}</td>
+      
+      <td>{element.revene}</td>
+      
     </tr>
   ));
 
@@ -48,13 +45,14 @@ export const TableDemo = () => {
         padding: "2vh",
       }}
     >
+      <h1 className="flex items-center justify-center">BÁO CÁO DOANH THU TỔNG HỢP 2023</h1>
       <Table>
         <thead>
           <tr>
-            <th>Số thứ tự</th>
-            <th>Môn học</th>
-            <th>số tháng</th>
-            <th>Tổng tiền</th>
+            <th>Date Month</th>
+           
+            
+            <th>Total Revenue</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>

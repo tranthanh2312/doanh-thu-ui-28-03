@@ -15,7 +15,6 @@ const Pie = () => {
         alignItems: "center",
         width: "100%",
         height: "100%",
-        flexWrap: "wrap",
       }}
     >
       <h2>DOANH THU TỪNG MÔN 1</h2>

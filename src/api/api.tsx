@@ -51,4 +51,27 @@ export const itemApi = {
 
     return response;
   },
+
+  login: async () => {
+    const response = await fetch(`${apiUrl}/setLogin`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Network response was not ok at FindTask");
+      })
+      .then((data) => {
+        const x = data.data;
+
+        return x;
+      });
+
+    return response;
+  },
 };

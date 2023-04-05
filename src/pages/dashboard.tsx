@@ -83,9 +83,8 @@ const Dashboard = () => {
             // textAlign: "center",
           }}
         >
-          <Filter/>
           <RevenueTable />
-          {/* <RevenueTable /> */}
+        
           <TableDemo/>
           <div style={{
             display: "flex",

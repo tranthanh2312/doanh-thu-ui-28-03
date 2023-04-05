@@ -70,43 +70,44 @@ const RevenueTable = () => {
         backgroundColor: "white",
         border: "1px #000",
         borderRadius: "15px",
+        padding: "1vh 1vw 2vh 1vw",
       }}
     >
       <Filter data={_item} />
-      <ScrollArea h={250}>
-        <input
-          className="p-2 m-4  border-4 rounded-lg  bg-slate-200"
-          type="text"
-          value={ageFilter}
-          onChange={(e) => handleAgeFilterChange(e)}
-          placeholder="Enter sth"
-        />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-            height: "100%",
-            // textAlign: "center",
-          }}
-        >
-          <Table align="center">
-            <thead>
-              <tr>
-                <th>Tên</th>
-                <th>Loại</th>
-                <th>Giá Tiền</th>
-                <th>Students</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* 
+
+      <input
+        className="p-2 m-4  border-4 rounded-lg  bg-slate-200"
+        type="text"
+        value={ageFilter}
+        onChange={(e) => handleAgeFilterChange(e)}
+        placeholder="Search ..."
+      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "auto",
+          // textAlign: "center",
+        }}
+      >
+        <Table align="center">
+          <thead>
+            <tr>
+              <th>Tên</th>
+              <th>Loại</th>
+              <th>Giá Tiền</th>
+              <th>Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* 
             5. Funtion map để lặp qua từng phần tử trong mảng _item
             6. Sử dụng sort để sắp xếp theo tên
           */}
-              {/* {_item?.sort((a, b) => a.itemType.itemTypeName.localeCompare(b.itemType.itemTypeName)).map((x, index) => {
+            {/* {_item?.sort((a, b) => a.itemType.itemTypeName.localeCompare(b.itemType.itemTypeName)).map((x, index) => {
                return (
                 <tr key={index}>
                   <td>{x.itemName}</td>
@@ -119,42 +120,50 @@ const RevenueTable = () => {
                 </tr>
               );
             })} */}
-              {filteredData
-                ?.sort((a: Item, b: Item) =>
-                  a.itemType.itemTypeName.localeCompare(b.itemType.itemTypeName)
-                )
-                .map((x, index) => {
-                  return (
-                    index >= (currentPage - 1) * 50 &&
-                    index < currentPage * 50 && (
-                      <tr key={index}>
-                        <td>
-                          {index + 1}. {x.itemName}
-                        </td>
-                        <td>{x.itemType.itemTypeName}</td>
-                        <td>
-                          {(x.basePrice * -1).toLocaleString("vi-VN", {
-                            style: "currency",
-                            currency: "VND",
-                          })}
-                        </td>
-                        <td>20</td>
-                      </tr>
-                    )
-                  );
-                })}
-            </tbody>
-            <Pagination
-              size="sm"
-              total={Math.round((_item?.length ?? 0) / 50)}
-              value={currentPage}
-              onChange={(e) => {
-                setCurrentPage(e);
-              }}
-            />
-          </Table>
-        </div>
-      </ScrollArea>
+            {filteredData
+              ?.sort((a: Item, b: Item) =>
+                a.itemType.itemTypeName.localeCompare(b.itemType.itemTypeName)
+              )
+              .map((x, index) => {
+                return (
+                  index >= (currentPage - 1) * 50 &&
+                  index < currentPage * 50 && (
+                    <tr key={index}>
+                      <td>
+                        {index + 1}. {x.itemName}
+                      </td>
+                      <td>{x.itemType.itemTypeName}</td>
+                      <td>
+                        {(x.basePrice * -1).toLocaleString("vi-VN", {
+                          style: "currency",
+                          currency: "VND",
+                        })}
+                      </td>
+                      <td>20</td>
+                    </tr>
+                  )
+                );
+              })}
+          </tbody>
+        </Table>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-end",
+          alignItems: "center",
+        }}
+      >
+        <Pagination
+          size="sm"
+          total={Math.round((_item?.length ?? 0) / 50)}
+          value={currentPage}
+          onChange={(e) => {
+            setCurrentPage(e);
+          }}
+        />
+      </div>
     </div>
   );
 };

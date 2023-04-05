@@ -32,7 +32,8 @@ const Pie = () => {
           sections={[
             { value: 60, color: "cyan", tooltip: "Anh Văn" },
             { value: 15, color: "orange", tooltip: "Toán" },
-            { value: 15, color: "grape", tooltip: "Lý Hóa" },
+            { value: 10, color: "grape", tooltip: "Hóa" },
+            { value: 5, color: "blue", tooltip: "Lý " },
           ]}
         />
       </div>
@@ -41,7 +42,8 @@ const Pie = () => {
         data={[
           { note: "Anh Văn", color: "cyan" },
           { note: "Toán", color: "orange" },
-          { note: "Lý Hóa", color: "grape" },
+          { note: "Lý ", color: "grape" },
+          { note: "Hóa", color: "blue" },
         ]}
       />
     </div>

@@ -41,8 +41,8 @@ const Dashboard = () => {
         display: "grid",
         flexDirection: "column",
         backgroundColor: "#D3D3D3",
-        // height: "100%",
-        // width: screenSize.width,
+       height: "100%",
+      // width: screenSize.width,
         width: "100%",
       }}
     >
@@ -56,10 +56,11 @@ const Dashboard = () => {
           height: "100%",
         }}
       >
-        <div class="pr-8 ">
-          <h2 class="text-center normal-case">SEARCH MONTH</h2>
+        
+        <div className="pr-8 ">
+          <h2 className="text-center normal-case">SEARCH MONTH</h2>
           <Select
-          class="rounded-3xl w-48 h-8 text-center"
+          className=" mr-5 rounded-3xl w-48 h-8 text-center"
             value={selectMonth}
             label=""
             placeholder="Search ... "
@@ -68,9 +69,9 @@ const Dashboard = () => {
           />
         </div>
         <div >
-          <h2 class="ml-5 text-center normal-case">SEARCH DATE</h2>
+          <h2 className="ml-5 text-center normal-case">SEARCH DATE</h2>
           <DateTimePicker
-          class="bg-white w-48 h-8 mt- mt-0.5 ml-5 rounded-3xl"
+          className="bg-white w-48 h-8 mt-0.5 ml-5  rounded-lg"
             withSeconds
             label=""
             placeholder="Search date"
@@ -87,11 +88,11 @@ const Dashboard = () => {
           justifyContent: "space-around",
           alignItems: screenSize.width < 992 ? "center" : "start",
           width: "100%",
-          marginTop: screenSize.width < 992 ? "10vh" : "5vh",
-          marginBottom: screenSize.width < 992 ? "10vh" : "5vh",
+          marginTop: screenSize.width < 992 ? "1vh" : "5vh",
+          marginBottom: screenSize.width < 992 ? "1vh" : "5vh",
           paddingLeft: screenSize.width < 992 ? "2vh" : "8vw",
           paddingRight: screenSize.width < 992 ? "2vh" : "8vw",
-          gap: screenSize.width < 992 ? "10vh" : "5vh",
+          gap: screenSize.width < 992 ? "1vh" : "5vh",
         }}
       >
         <div

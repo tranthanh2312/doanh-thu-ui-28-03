@@ -16,6 +16,8 @@ export const itemApi = {
       },
     })
       .then((res) => {
+        console.log("res", res);
+        
         if (res.ok) {
           return res.json();
         }
@@ -23,12 +25,14 @@ export const itemApi = {
       })
       .then((data) => {
         //  2. Interface of Typescript
+        console.log("ddd", data);
+
         let items: Item[] = data.data;
         return items;
       });
 
     return response;
-  },
+  },  
 
   GetAllClass: async () => {
     const response = await fetch(`${apiUrl}/v1/class/all`, {
@@ -75,7 +79,7 @@ export const itemApi = {
     return response;
   },
 
-  invoiceHistory: async () => {
+  invoiceHistory: async () => { 
     const response = await fetch(`${apiUrl}/tuition/invoiceHistory`, {
       method: "POST",
       credentials: "include",

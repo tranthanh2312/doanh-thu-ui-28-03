@@ -60,8 +60,6 @@ const RevenueTable = () => {
     setAgeFilter(value);
   };
 
-  console.log("diff: ", filteredData, _item);
-
   return (
     <div
       style={{
@@ -155,14 +153,7 @@ const RevenueTable = () => {
           alignItems: "center",
         }}
       >
-        <Pagination
-          size="sm"
-          total={Math.round((_item?.length ?? 0) / 50)}
-          value={currentPage}
-          onChange={(e) => {
-            setCurrentPage(e);
-          }}
-        />
+        
       </div>
     </div>
   );
